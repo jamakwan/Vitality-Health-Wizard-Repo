@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-title>sleep-tracker</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-button id="home-page" shape="round" href="/home">← Back to Home</ion-button>
+  <div class="card-wrapper">
+      <ion-button id="sleep-button" shape="round" (click)="showEntryCard()" [class.hide-button]=logSleepHidden>Log Sleep</ion-button>
+      <ion-card [class.hide-button]=entryCardHidden>
+          <ion-card-header>
+              <ion-card-title>Sleep Tracking</ion-card-title>
+              <ion-card-subtitle>Please Enter The Start-Time Of Your Sleep (zzZ).</ion-card-subtitle>
+          </ion-card-header>
+          <ion-datetime displayFormat=YYYY-MM-DDTHH:mm [(ngModel)]="startTime" [class.hide-button]=entryTimeHidden></ion-datetime>
+          <ion-button id="select-time" shape="round" (click)="showEndCard()" [class.hide-button]=submitHidden>Submit</ion-button>
+          <ion-card-content>
+              You're On Your Way To Improving Your Mental And Physical Health One Z At A Time.
+          </ion-card-content>
+      </ion-card>
+      <ion-card [class.hide-button]=endCardHidden>
+          <ion-card-header>
+              <ion-card-title>Sleep Tracking</ion-card-title>
+              <ion-card-subtitle>Please Enter The End-Time Of Your Sleep (!!!).</ion-card-subtitle>
+          </ion-card-header>
+          <ion-datetime displayFormat=YYYY-MM-DDTHH:mm [(ngModel)]="endTime" [class.hide-button]=endTimeHidden></ion-datetime>
+          <ion-button id="select-end-time" shape="round" (click)="reset()" [class.hide-button]=confirmHidden>Confirm</ion-button>
+          <ion-card-content>
+              Well Rested? It Seems Like It!
+          </ion-card-content>
+      </ion-card>
+  </div>
+</ion-content>
+
+

@@ -13,10 +13,12 @@
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
+        
+        <p>This is random test text</p>
 
         <ion-list id="labels-list">
           <ion-list-header>Labels</ion-list-header>
-
+      
           <ion-item *ngFor="let label of labels" lines="none">
             <ion-icon aria-hidden="true" slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
             <ion-label>{{ label }}</ion-label>
