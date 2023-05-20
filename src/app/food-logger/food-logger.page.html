@@ -5,9 +5,81 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">food-logger</ion-title>
-    </ion-toolbar>
+  <ion-button id="home-page" shape="round" href="/home">← Back to Home</ion-button>
+  <ion-header>
   </ion-header>
+
+
+
+  <div class = "button-wrapper-meals">
+    <ion-button id = "log-breakfast" shape = "round" (click)="logBreakfast()" [class.hide-button] = "hideBreakfast">Log Breakfast</ion-button>
+    <ion-button id = "log-lunch" shape = "round" (click) = "logLunch()" [class.hide-button] = "hideLunch">Log Lunch</ion-button>
+    <ion-button id = "log-dinner" shape = "round" (click) = "logDinner()" [class.hide-button] = "hideDinner">Log Dinner</ion-button>
+  </div>
+
+  <div class = "breakfast-card">
+    <ion-card [class.hide-button] = breakfastCardHidden>
+      <ion-card-header>
+        <ion-card-title>Breakfast Tracking</ion-card-title>
+        <ion-card-subtitle>Please Enter The Calories For Breakfast</ion-card-subtitle>
+      </ion-card-header> 
+      <ion-input type = "number" 
+      fill = "solid" 
+      label = "Calories" 
+      labelPlacement = "stacked" 
+      placeholder = "Please enter calories consumed"
+      [(ngModel)] = "breakfastCals">
+    </ion-input>
+    <ion-button id = "select-breakfast-cals" shape = "round" (click) = "reset()" [class.hide-button] = "submitHidden">Submit</ion-button>
+    <ion-card-content>
+      Let's start the day off right!
+    </ion-card-content>  
+  </ion-card>
+  </div>
+
+
+  <div class = "lunch-card">
+    <ion-card [class.hide-button] = lunchCardHidden>
+      <ion-card-header>
+        <ion-card-title>Lunch Tracking</ion-card-title>
+        <ion-card-subtitle>Please Enter The Calories For Lunch</ion-card-subtitle>
+      </ion-card-header> 
+      <ion-input type = "number" 
+      fill = "solid" 
+      label = "Calories" 
+      labelPlacement = "stacked" 
+      placeholder = "Please enter calories consumed"
+      [(ngModel)] = "lunchCals">
+    </ion-input>
+    <ion-button id = "select-lunch-cals" shape = "round" (click) = "reset()" [class.hide-button] = "submitHidden">Submit</ion-button>
+    <ion-card-content>
+      Let's get a pick me up!
+    </ion-card-content>  
+  </ion-card>
+  </div>
+
+
+
+
+  <div class = "dinner-card">
+    <ion-card [class.hide-button] = dinnerCardHidden>
+      <ion-card-header>
+        <ion-card-title>Dinner Tracking</ion-card-title>
+        <ion-card-subtitle>Please Enter The Calories For Dinner</ion-card-subtitle>
+      </ion-card-header> 
+      <ion-input type = "number" 
+      fill = "solid" 
+      label = "Calories" 
+      labelPlacement = "stacked" 
+      placeholder = "Please enter calories consumed"
+      [(ngModel)] = "dinnerCals">
+    </ion-input>
+    <ion-button id = "select-dinner-cals" shape = "round" (click) = "reset()" [class.hide-button] = "submitHidden">Submit</ion-button>
+    <ion-card-content>
+      Let's finish off strong!
+    </ion-card-content>  
+  </ion-card>
+  </div>
 </ion-content>
+
+

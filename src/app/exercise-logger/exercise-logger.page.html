@@ -24,8 +24,8 @@
   <ion-button id="home-page" shape="round" href="/home">← Back to Home</ion-button>
   <!-- <ion-img src="https://www.svgrepo.com/show/83793/dumbell.svg" alt="Exercise Vector Icon"></ion-img> -->
   <div class="card-wrapper">
-      <ion-button id="exercise-button" shape="round" (click)="showEntryCard()" [hidden]=logExerciseHidden>Log Exercise</ion-button>
-      <ion-card [hidden]=entryCardHidden>
+      <ion-button id="exercise-button" shape="round" (click)="showEntryCard()" [class.hide-button]=logExerciseHidden>Log Exercise</ion-button>
+      <ion-card [class.hide-button]=entryCardHidden>
           <ion-card-header>
               <ion-card-title>Exercise Tracking</ion-card-title>
               <ion-card-subtitle>Please Enter How Many Calories You Burnt</ion-card-subtitle>
@@ -37,9 +37,9 @@
           labelPlacement="stacked"
           placeholder = "Please enter Calories Burnt"
           [(ngModel)] = "cals"
-          [hidden] = "entryCalsHidden">  
+          [class.hide-button] = "entryCalsHidden">  
           </ion-input>
-          <ion-button id="select-exercise" shape="round" (click) = "logData()" [hidden]=submitHidden>Submit</ion-button>
+          <ion-button id="select-exercise" shape="round" (click) = "reset()" [class.hide-button]=submitHidden>Submit</ion-button>
           <ion-card-content>
               You're On Your Way To Improving Your Mental And Physical Health.
           </ion-card-content>
