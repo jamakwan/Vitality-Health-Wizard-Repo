@@ -1,6 +1,43 @@
 import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { getElement } from 'ionicons/dist/types/stencil-public-runtime';
+var sleep = [-1, -1, -1, -1, -1, -1, -1];
+if(localStorage.getItem("sleep") != null){
+  // @ts-ignore we checked above it was null!
+  sleep = JSON.parse(localStorage.getItem("sleep"));
+}
+
+function setRecommendation(){
+  let num_not_entered = 0;
+  let total = 0;
+  for(let i=0; i<sleep.length; i++){
+    if(sleep[i] == -1){
+      num_not_entered += 1
+    }
+    else{
+      total += sleep[i]
+    }
+  }
+  if(num_not_entered > 4){
+    // @ts-ignore
+    document.getElementById('recommendation').innerHTML = 'You must enter sleep data for at least three' +
+      ' days in the past week to receive a recommendation.';
+  }
+  else{
+    let num_entered = 7- num_not_entered;
+    if(total/num_entered > 8){
+      // @ts-ignore
+      document.getElementById('recommendation').innerHTML = 'Good job getting sleep this week! Keep getting 8 hours a night!';
+    }
+    else{
+      // @ts-ignore
+      document.getElementById('recommendation').innerHTML = "You haven't been sleeping enough this week. Try to get 9 hours tonight!";
+    }
+
+  }
+}
+
+setRecommendation();
 
 @Component({
   selector: 'app-sleep-tracker',
@@ -18,6 +55,7 @@ export class SleepTrackerPage {
   confirmHidden : boolean = true;
   logSleepHidden : boolean = false;
   flag : number = 1; // is 1 if the dates aren't correct, else its a different value
+  private date: any;
 
   constructor(public alertController:AlertController) {
     this.startTime = new Date();
@@ -50,7 +88,22 @@ export class SleepTrackerPage {
 
   reset()
   {
+
     this.validateInput();
+
+
+
+
+    // @ts-ignore
+    let hours = Math.abs(this.endTime - this.startTime) / (60*60*1000);
+    var currentdate = new Date();
+    // @ts-ignore
+    let days_back = Math.round((currentdate - this.endTime)/(1000 * 3600 * 24));
+    if (days_back < 7){
+      sleep[days_back] = hours;
+    }
+
+
     /*
     if(this.flag == 1)
     {
