@@ -1,21 +1,44 @@
-.button-wrapper-redirect{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 .circular-button{
-  width: 100px;
-  height: 100px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%; 
-  background-color: #007bff; 
-  color: #ffffff; 
-  border: none; 
-  outline: none;
-
+  background-color: #013c30f9; 
+  color: #0d0c0c; 
+  border: 4px solid #bb08a3; 
+  outline: 5px solid #02262bf1;
+  margin-top: 20px;
+}
+.button-wrapper-redirect{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 10px solid #940746bc; 
+  outline: 20px solid #02262bf1;
+  padding: 50px;
+}
+.button-wrapper-redirect button {
+  margin-bottom: 50px; /* Adjust the value as per your desired spacing */
+  margin-left: 70px;
+  margin-right: 70px;
+  margin-top: 50px;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+}
+.button-wrapper-redirect::before {
+  content: '';
+  position: absolute;
+  top: -10px; /* Adjust the value to move the border up */
+  left: -10px; /* Adjust the value to move the border up */
+  right: -10px; /* Adjust the value to move the border up */
+  bottom: -10px; /* Adjust the value to move the border up */
+  border: 10px solid #940746bc;
+  outline: 20px solid #013c30f9;
+  border-radius: 20%;
+  z-index: -1;
 }
