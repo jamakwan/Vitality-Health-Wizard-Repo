@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./exercise-logger.page.scss'],
 })
 export class ExerciseLoggerPage implements OnInit {
-  cals:Number;
+  cals: number;
   entryCardHidden : boolean = true;
   entryCalsHidden : boolean = true;
   submitHidden : boolean = true;
@@ -14,7 +14,7 @@ export class ExerciseLoggerPage implements OnInit {
   logExerciseHidden : boolean = false;
   flag : number = 1; //is 1 if input valid idk
 
-  constructor() { 
+  constructor() {
     this.cals = 0;
   }
 
@@ -31,20 +31,30 @@ export class ExerciseLoggerPage implements OnInit {
   reset()
   {
     console.log(this.cals);
-    this.cals = new Number();
+    this.logData()
+    this.cals = 0;
     this.entryCardHidden = true;
     this.submitHidden = true;
     this.confirmHidden = true;
     this.logExerciseHidden = false;
     this.flag = 1;
-    
+
 
   }
 
-  logData()
-  {
-    
+  logData(){
+    calsBurned.push(this.cals);
+    localStorage.setItem("calsBurned", JSON.stringify(calsBurned));
   }
 
+}
+
+var calsBurned = [-1];
+if(localStorage.getItem("sleep") != null){
+  // @ts-ignore we checked above it was null!
+  calsBurned = JSON.parse(localStorage.getItem("calsBurned"));
+}
+else{
+  calsBurned.pop()
 }
 
