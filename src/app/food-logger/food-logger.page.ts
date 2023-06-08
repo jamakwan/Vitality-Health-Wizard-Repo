@@ -26,7 +26,7 @@ export class FoodLoggerPage implements OnInit {
    }
 
   ngOnInit() {
-    
+
   }
 
 
@@ -59,8 +59,20 @@ export class FoodLoggerPage implements OnInit {
     this.totalCals = 0;
   }
 
+  resetNonDinner()
+  {
+    this.hideBreakfast = false;
+    this.hideLunch = false;
+    this.hideDinner = false;
+    this.breakfastCardHidden = true;
+    this.submitHidden = true;
+    this.lunchCardHidden = true;
+    this.dinnerCardHidden = true;
+  }
+
   reset()
   {
+    this.logData()
     this.hideBreakfast = false;
     this.hideLunch = false;
     this.hideDinner = false;
@@ -73,4 +85,18 @@ export class FoodLoggerPage implements OnInit {
     this.dinnerCals = 0;
   }
 
+  logData(){
+    cals.push(this.lunchCals+this.breakfastCals+this.dinnerCals);
+    localStorage.setItem("cals", JSON.stringify(cals));
+  }
+
+}
+
+var cals = [-1];
+if(localStorage.getItem("cals") != null){
+  // @ts-ignore we checked above it was null!
+  cals = JSON.parse(localStorage.getItem("cals"));
+}
+else{
+  cals.pop();
 }
