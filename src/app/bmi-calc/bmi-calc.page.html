@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>bmi-calc</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">bmi-calc</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Enter Height and Weight</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Height (in)</ion-label>
+        <ion-input type="number" [(ngModel)] = "height"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Weight (lb)</ion-label>
+        <ion-input type="number" [(ngModel)] = "weight"></ion-input>
+      </ion-item>
+    </ion-card-content>
+    <ion-button (click)="logUserInput()">Submit</ion-button>
+  </ion-card>
+
+</ion-content>
