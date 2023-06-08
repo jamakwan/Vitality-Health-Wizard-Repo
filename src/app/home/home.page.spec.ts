@@ -9,7 +9,7 @@ describe('HomePage', () => {
     fixture = TestBed.createComponent(HomePage);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  }));
+  })); 
 
   it('should create', () => {
     expect(component).toBeTruthy();

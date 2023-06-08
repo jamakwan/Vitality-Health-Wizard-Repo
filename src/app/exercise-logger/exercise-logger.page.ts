@@ -15,11 +15,10 @@ export class ExerciseLoggerPage implements OnInit {
   flag : number = 1; //is 1 if input valid idk
 
   constructor() { 
-    this.cals = new Number();
+    this.cals = 0;
   }
 
   ngOnInit() {
-    // console.log(this.allExerciseData);
   }
 
   showEntryCard() {
@@ -38,6 +37,8 @@ export class ExerciseLoggerPage implements OnInit {
     this.confirmHidden = true;
     this.logExerciseHidden = false;
     this.flag = 1;
+    
+
   }
 
   logData()
