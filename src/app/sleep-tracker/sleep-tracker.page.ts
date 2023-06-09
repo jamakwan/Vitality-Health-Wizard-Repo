@@ -78,7 +78,6 @@ export class SleepTrackerPage {
     this.confirmHidden = true;
     this.logSleepHidden = false;
     this.flag = 1;
-    recommendSleep();
   }
 
   async validateInput()
@@ -105,33 +104,3 @@ else{
 }
 
 console.log(sleep)
-recommendSleep();
-function recommendSleep(){
-
-  if(sleep.length == 0){
-    alert("Enter sleep data to receive a recommendation!")
-    return;
-  }
-
-  let avg_hours = 0;
-  let i = 0;
-  let total = sleep.length;
-  if (sleep.length > 7){
-    i = sleep.length - 7;
-    total = 7;
-  }
-  for (; i < sleep.length; i++) {
-    avg_hours += sleep[i]
-  }
-  avg_hours = avg_hours/total;
-
-  if(avg_hours >= 8 && avg_hours <= 10){
-    alert("You've been sleeping " + avg_hours.toFixed(2) + " hours a day in the past " + total + " days. That's a health amount of sleep!");
-  }
-  else if(avg_hours > 10){
-    alert("You've been sleeping " + avg_hours.toFixed(2) + " hours a day in the past " + total + " days. That's an unhealthy amount! Try not to sleep as much.");
-  }
-  else{
-    alert("You've been sleeping " + avg_hours.toFixed(2) + " hours a day in the past " + total + " days. That's an unhealthy amount of sleep! Try to sleep more.");
-  }
-}
