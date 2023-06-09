@@ -7,34 +7,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HealthScorePage implements OnInit {
 
-  constructor() { }
+  cals: number[] = [-1];
+  calsBurned: number[] = [-1];
+  sleep: number[] = [-1];
 
-  ngOnInit() {
+  constructor() {
   }
 
-}
+  ngOnInit() {
+    if(localStorage.getItem("cals") != null){
+      // @ts-ignore we checked above it was null!
+      this.cals = JSON.parse(localStorage.getItem("cals"));
+    }
+    else{
+      this.cals.pop();
+    }
+    
+    if(localStorage.getItem("calsBurned") != null){
+      // @ts-ignore we checked above it was null!
+      this.calsBurned = JSON.parse(localStorage.getItem("calsBurned"));
+    }
+    else{
+      this.calsBurned.pop();
+    }
+    
+    if(localStorage.getItem("sleep") != null){
+      // @ts-ignore we checked above it was null!
+      this.sleep = JSON.parse(localStorage.getItem("sleep"));
+    }
+    else{
+      this.sleep.pop();
+    }
+    
+  }
 
-var cals = [-1];
-if(localStorage.getItem("cals") != null){
-  // @ts-ignore we checked above it was null!
-  cals = JSON.parse(localStorage.getItem("cals"));
-}
-else{
-  cals.pop();
-}
-var calsBurned = [-1];
-if(localStorage.getItem("calsBurned") != null){
-  // @ts-ignore we checked above it was null!
-  calsBurned = JSON.parse(localStorage.getItem("calsBurned"));
-}
-else{
-  calsBurned.pop();
-}
-var sleep = [-1];
-if(localStorage.getItem("sleep") != null){
-  // @ts-ignore we checked above it was null!
-  cals = JSON.parse(localStorage.getItem("sleep"));
-}
-else{
-  sleep.pop();
 }

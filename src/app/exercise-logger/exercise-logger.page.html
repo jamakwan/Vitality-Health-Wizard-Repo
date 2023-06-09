@@ -4,25 +4,9 @@
   </ion-toolbar>
 </ion-header>
 
-<!-- <ion-content [fullscreen]="true">
-  <ion-button id = 
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">exercise-logger</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div class = "button-wrapper"> 
-    <ion-button (click)="onClick()" expand="block" fill="clear" shape="round">
-      Log Exercise
-    </ion-button>
-
-  </div>
-</ion-content> -->
 
 <ion-content [fullscreen]="true">
   <ion-button id="home-page" shape="round" href="/home">← Back to Home</ion-button>
-  <!-- <ion-img src="https://www.svgrepo.com/show/83793/dumbell.svg" alt="Exercise Vector Icon"></ion-img> -->
   <div class="card-wrapper">
       <ion-button id="exercise-button" shape="round" (click)="showEntryCard()" [class.hide-button]=logExerciseHidden>Log Exercise</ion-button>
       <ion-card [class.hide-button]=entryCardHidden>

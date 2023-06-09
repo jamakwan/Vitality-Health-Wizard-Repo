@@ -38,8 +38,6 @@ export class ExerciseLoggerPage implements OnInit {
     this.confirmHidden = true;
     this.logExerciseHidden = false;
     this.flag = 1;
-
-
   }
 
   logData(){
@@ -50,7 +48,7 @@ export class ExerciseLoggerPage implements OnInit {
 }
 
 var calsBurned = [-1];
-if(localStorage.getItem("sleep") != null){
+if(localStorage.getItem("calsBurned") != null){
   // @ts-ignore we checked above it was null!
   calsBurned = JSON.parse(localStorage.getItem("calsBurned"));
 }
