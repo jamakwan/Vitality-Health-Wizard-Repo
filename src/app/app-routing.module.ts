@@ -34,6 +34,10 @@ const routes: Routes = [
   {
     path: 'bmi-calc',
     loadChildren: () => import('./bmi-calc/bmi-calc.module').then( m => m.BmiCalcPageModule)
+  },
+  {
+    path: 'health-score',
+    loadChildren: () => import('./health-score/health-score.module').then( m => m.HealthScorePageModule)
   }
 
 
