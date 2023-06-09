@@ -10,7 +10,8 @@ const routes: Routes = [
   {
     path: 'folder/:id',
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
-  },  {
+  },
+  {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
@@ -29,7 +30,12 @@ const routes: Routes = [
   {
     path: 'food-logger',
     loadChildren: () => import('./food-logger/food-logger.module').then( m => m.FoodLoggerPageModule)
+  },
+  {
+    path: 'bmi-calc',
+    loadChildren: () => import('./bmi-calc/bmi-calc.module').then( m => m.BmiCalcPageModule)
   }
+
 
 ];
 
