@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
+import {Chart} from 'chart.js';
 
 @Component({
   selector: 'app-bmi-calc',
@@ -23,6 +24,9 @@ export class BmiCalcPage implements OnInit {
     this.lbs = "";   
   }
 
+
+
+
   ngOnInit() {
   }
 
@@ -33,9 +37,13 @@ export class BmiCalcPage implements OnInit {
     // console.log('BMI:',this.bmi); 
 
     this.height = parseInt(this.feet) * 12 + parseInt(this.inches);
+    height.push(this.height)
+    localStorage.setItem("height", JSON.stringify(height));
 
     // Convert the weight to a number
     this.weight = parseInt(this.lbs);
+    weight.push(this.weight)
+    localStorage.setItem("weight", JSON.stringify(weight));
   
     // Perform BMI calculation
     this.bmi = (this.weight/(this.height*this.height))*703;
@@ -43,7 +51,23 @@ export class BmiCalcPage implements OnInit {
     console.log('Height: ' + this.feet + ' ft ' + this.inches + ' in');
     console.log('Weight: ' + this.lbs + ' lbs')
     console.log('BMI:', this.bmi);
-
-    
   }
+}
+
+var height = [-1];
+if(localStorage.getItem("height") != null){
+  // @ts-ignore we checked above it was null!
+  height = JSON.parse(localStorage.getItem("height"));
+}
+else{
+  height.pop()
+}
+
+var weight = [-1];
+if(localStorage.getItem("weight") != null){
+  // @ts-ignore we checked above it was null!
+  weight = JSON.parse(localStorage.getItem("weight"));
+}
+else{
+  weight.pop()
 }
